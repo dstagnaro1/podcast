@@ -60,10 +60,14 @@ class PodcastsViewController: NSViewController, NSTableViewDataSource, NSTableVi
                         
                         (NSApplication.shared().delegate as? AppDelegate)?.saveAction(nil)
                         self.getPodcasts()
+                        
+                        DispatchQueue.main.async {
+                            self.podcastURLTextField.stringValue = ""
+                        }
+                        
                     }
                 }
                 }.resume()
-            podcastURLTextField.stringValue = ""
         }
     }
     

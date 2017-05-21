@@ -10,6 +10,7 @@
 		37053AEE1ECE757800728C33 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37053AED1ECE757800728C33 /* Parser.swift */; };
 		37053AF11ECE78EE00728C33 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37053AEF1ECE78EE00728C33 /* SWXMLHash.swift */; };
 		37053AF21ECE78EE00728C33 /* SWXMLHash+TypeConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37053AF01ECE78EE00728C33 /* SWXMLHash+TypeConversion.swift */; };
+		37084C851ED14CE400FD8A13 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37084C841ED14CE400FD8A13 /* Episode.swift */; };
 		370B626B1ECE245C00BCA82D /* PodcastsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B626A1ECE245C00BCA82D /* PodcastsViewController.swift */; };
 		3799FAD81ECE0E24003532FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799FAD71ECE0E24003532FC /* AppDelegate.swift */; };
 		3799FADD1ECE0E24003532FC /* Podcaster_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3799FADB1ECE0E24003532FC /* Podcaster_2.xcdatamodeld */; };
@@ -23,6 +24,7 @@
 		37053AED1ECE757800728C33 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		37053AEF1ECE78EE00728C33 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 		37053AF01ECE78EE00728C33 /* SWXMLHash+TypeConversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SWXMLHash+TypeConversion.swift"; sourceTree = "<group>"; };
+		37084C841ED14CE400FD8A13 /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		370B626A1ECE245C00BCA82D /* PodcastsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastsViewController.swift; sourceTree = "<group>"; };
 		3799FAD41ECE0E24003532FC /* Podcaster 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Podcaster 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3799FAD71ECE0E24003532FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				37E12D371ECFC162005B6ACE /* EpisodesViewController.swift */,
 				370B626A1ECE245C00BCA82D /* PodcastsViewController.swift */,
 				37E12D391ECFC28D005B6ACE /* SplitController.swift */,
+				37084C841ED14CE400FD8A13 /* Episode.swift */,
 				37053AED1ECE757800728C33 /* Parser.swift */,
 				3799FAE01ECE0E24003532FC /* Main.storyboard */,
 				37053AF31ECE78F200728C33 /* SWXMLHash */,
@@ -166,6 +169,7 @@
 				37053AEE1ECE757800728C33 /* Parser.swift in Sources */,
 				370B626B1ECE245C00BCA82D /* PodcastsViewController.swift in Sources */,
 				37053AF11ECE78EE00728C33 /* SWXMLHash.swift in Sources */,
+				37084C851ED14CE400FD8A13 /* Episode.swift in Sources */,
 				3799FAD81ECE0E24003532FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
