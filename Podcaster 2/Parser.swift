@@ -18,9 +18,30 @@ class Parser {
     }
     func getEpisodes(data:Data) -> [Episode] {
         let xml = SWXMLHash.parse(data)
+
+        var episodes : [Episode] = []
         
+        for item in xml["rss"]["channel"]["item"] {
+            let episode = Episode()
+            if let title = item["title"].element?.text{
+                episode.title = title
+            }
+            if let desc = item["description"].element?.text{
+                episode.htmlDescription = desc
+            }
+            if let link = item["link"].element?.text {
+                episode.audioURL = link
+            }
+            if let pubDate = item["pubDate"].element?.text {
+                if let date = Episode.formatter.date(from: pubDate){
+                    episode.pubDate = date
+                }
+            }
+            episodes.append(episode)
+            print(episode.pubDate)
+        }
         
-        return []
+        return episodes
     }
     
 }
