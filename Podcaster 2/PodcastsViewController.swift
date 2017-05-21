@@ -91,5 +91,4 @@ class PodcastsViewController: NSViewController, NSTableViewDataSource, NSTableVi
             episodesVC?.updateView()
         }
     }
-    
 }
