@@ -53,7 +53,7 @@ class PodcastsViewController: NSViewController, NSTableViewDataSource, NSTableVi
                     if let context = (NSApplication.shared().delegate as? AppDelegate)?.persistentContainer.viewContext {
                         let podcast = Podcast(context: context)
                         
-                        print(self.podcastURLTextField.stringValue)
+//                        print(self.podcastURLTextField.stringValue)
                         
                         podcast.rssURL = self.podcastURLTextField.stringValue
                         podcast.imageURL = info.imageURL

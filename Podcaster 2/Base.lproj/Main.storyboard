@@ -901,7 +901,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="YNK-c5-ecF">
+                                                        <tableCellView identifier="episodeCell" id="YNK-c5-ecF">
                                                             <rect key="frame" x="1" y="1" width="601" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -968,7 +968,7 @@
                 </viewController>
                 <customObject id="kv6-kN-P4I" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114" y="882"/>
+            <point key="canvasLocation" x="1114" y="881.5"/>
         </scene>
     </scenes>
 </document>

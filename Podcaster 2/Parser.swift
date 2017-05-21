@@ -29,16 +29,21 @@ class Parser {
             if let desc = item["description"].element?.text{
                 episode.htmlDescription = desc
             }
+            
             if let link = item["link"].element?.text {
                 episode.audioURL = link
+            } else {
+                if let enc = item["enclosure"].element?.attribute(by: "url") {
+                    episode.audioURL = enc.text
+                }
             }
+            
             if let pubDate = item["pubDate"].element?.text {
                 if let date = Episode.formatter.date(from: pubDate){
                     episode.pubDate = date
                 }
             }
             episodes.append(episode)
-            print(episode.pubDate)
         }
         
         return episodes
