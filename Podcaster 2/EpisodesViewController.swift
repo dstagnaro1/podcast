@@ -14,7 +14,9 @@ class EpisodesViewController: NSViewController, NSTableViewDataSource, NSTableVi
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var imageView: NSImageView!
     @IBOutlet weak var pausePlayButton: NSButton!
+    @IBOutlet weak var deleteButton: NSButton!
     @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var timeLabel: NSTextField!
     
     var podcast: Podcast?
     var podcastsVC: PodcastsViewController? = nil
@@ -38,11 +40,13 @@ class EpisodesViewController: NSViewController, NSTableViewDataSource, NSTableVi
         } else {
             titleLabel.stringValue = ""
         }
-        pausePlayButton.isHidden = false
+        
+        deleteButton.isHidden = false
         getEpisodes()
     }
     
     func getEpisodes() {
+        // if podcast url exists
         if podcast?.rssURL != nil {
             
             if let url = URL(string: podcast!.rssURL!) {
@@ -57,33 +61,35 @@ class EpisodesViewController: NSViewController, NSTableViewDataSource, NSTableVi
                             self.tableView.reloadData()
                         }
                     }
-                    }.resume()
+                }.resume()
             }
         }
     }
     
     @IBAction func deleteClicked(_ sender: Any) {
-        
         if podcast != nil {
             if let context = (NSApplication.shared().delegate as? AppDelegate)?.persistentContainer.viewContext {
                 context.delete(podcast!)
                 (NSApplication.shared().delegate as? AppDelegate)?.saveAction(nil)
-                
                 podcastsVC?.getPodcasts()
-                
                 podcast = nil
                 updateView()
             }
         }
     }
+    
     @IBAction func pausePlayClicked(_ sender: Any) {
-        if player?.rate == Float(0.0) {
-            player?.rate = 1.0
-        } else if player?.rate == Float(1.0) {
-            player?.rate = 0.0
+        if pausePlayButton.title == "Play" {
+            player?.play()
+            pausePlayButton.title = "Pause"
+        } else if pausePlayButton.title == "Pause" {
+            player?.pause()
+            pausePlayButton.title = "Play"
         }
+        updateView()
         
     }
+    
     func numberOfRows(in tableView: NSTableView) -> Int {
         return episodes.count
     }
@@ -94,13 +100,21 @@ class EpisodesViewController: NSViewController, NSTableViewDataSource, NSTableVi
         cell?.textField?.stringValue = episode.title
         return cell
     }
+    
     func tableViewSelectionDidChange(_ notification: Notification) {
         if tableView.selectedRow >= 0 {
             let episode = episodes[tableView.selectedRow]
             if let url = URL(string: episode.audioURL) {
+                
+                player?.pause()
+                player = nil
+                
                 player = AVPlayer(url: url)
                 player?.play()
             }
+            pausePlayButton.isHidden = false
+            pausePlayButton.title = "Pause"
+            timeLabel.isHidden = false
         }
     }
 }

@@ -45,8 +45,6 @@ class Parser {
             }
             episodes.append(episode)
         }
-        
         return episodes
     }
-    
 }

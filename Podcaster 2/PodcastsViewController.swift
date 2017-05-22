@@ -20,7 +20,7 @@ class PodcastsViewController: NSViewController, NSTableViewDataSource, NSTableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-//        podcastURLTextField.stringValue = "http://rss.art19.com/nosleep"
+        //podcastURLTextField.stringValue = "http://rss.art19.com/nosleep"
         podcastURLTextField.stringValue = "http://feeds.feedburner.com/ForePlay"
         getPodcasts()
     }
@@ -50,30 +50,50 @@ class PodcastsViewController: NSViewController, NSTableViewDataSource, NSTableVi
                 } else if data != nil {
                     let parser = Parser()
                     let info = parser.getPodcastMetaData(data: data!)
-                    if let context = (NSApplication.shared().delegate as? AppDelegate)?.persistentContainer.viewContext {
-                        let podcast = Podcast(context: context)
+                    
+                    if !self.podcastExists(rssURL: self.podcastURLTextField.stringValue) {
                         
-//                        print(self.podcastURLTextField.stringValue)
-                        
-                        podcast.rssURL = self.podcastURLTextField.stringValue
-                        podcast.imageURL = info.imageURL
-                        podcast.title = info.title
-                        
-                        (NSApplication.shared().delegate as? AppDelegate)?.saveAction(nil)
-                        self.getPodcasts()
-                        
-                        DispatchQueue.main.async {
-                            self.podcastURLTextField.stringValue = ""
+                        if let context = (NSApplication.shared().delegate as? AppDelegate)?.persistentContainer.viewContext {
+                            let podcast = Podcast(context: context)
+                            
+                            podcast.rssURL = self.podcastURLTextField.stringValue
+                            podcast.imageURL = info.imageURL
+                            podcast.title = info.title
+                            
+                            (NSApplication.shared().delegate as? AppDelegate)?.saveAction(nil)
+                            self.getPodcasts()
+                            
+                            DispatchQueue.main.async {
+                                self.podcastURLTextField.stringValue = ""
+                            }
                         }
-                        
                     }
                 }
-                }.resume()
+            }.resume()
         }
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return podcasts.count
+    }
+    
+    func podcastExists(rssURL: String) -> Bool {
+        if let context = (NSApplication.shared().delegate as? AppDelegate)?.persistentContainer.viewContext {
+            
+            let fetch = Podcast.fetchRequest() as NSFetchRequest<Podcast>
+            fetch.predicate = NSPredicate(format: "rssURL == %@", rssURL)
+            
+            do {
+                let matchingPodcasts = try context.fetch(fetch)
+                
+                if matchingPodcasts.count >= 1 {
+                    return true
+                } else {
+                    return false
+                }
+            } catch {}
+        }
+        return false
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
