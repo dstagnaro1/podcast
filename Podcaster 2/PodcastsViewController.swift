@@ -21,7 +21,7 @@ class PodcastsViewController: NSViewController, NSTableViewDataSource, NSTableVi
         super.viewDidLoad()
         // Do view setup here.
         //podcastURLTextField.stringValue = "http://rss.art19.com/nosleep"
-        podcastURLTextField.stringValue = "http://feeds.feedburner.com/ForePlay"
+//        podcastURLTextField.stringValue = "http://feeds.feedburner.com/ForePlay"
         getPodcasts()
     }
     

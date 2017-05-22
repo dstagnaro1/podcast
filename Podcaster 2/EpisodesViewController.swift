@@ -25,6 +25,7 @@ class EpisodesViewController: NSViewController, NSTableViewDataSource, NSTableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateView()
         // Do view setup here.
     }
     
@@ -41,7 +42,13 @@ class EpisodesViewController: NSViewController, NSTableViewDataSource, NSTableVi
             titleLabel.stringValue = ""
         }
         
-        deleteButton.isHidden = false
+        if podcast != nil {
+            tableView.isHidden = false
+            deleteButton.isHidden = false
+        } else {
+            tableView.isHidden = true
+            deleteButton.isHidden = true
+        }
         getEpisodes()
     }
     
@@ -94,10 +101,20 @@ class EpisodesViewController: NSViewController, NSTableViewDataSource, NSTableVi
         return episodes.count
     }
     
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 153
+    }
+    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let episode = episodes[row]
-        let cell = tableView.make(withIdentifier: "episodeCell", owner: self) as? NSTableCellView
-        cell?.textField?.stringValue = episode.title
+        let cell = tableView.make(withIdentifier: "episodeCell", owner: self) as? EpisodeCell
+        cell?.titleLabel.stringValue = episode.title
+        cell?.descriptionWebView.mainFrame.loadHTMLString(episode.htmlDescription, baseURL: nil)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        cell?.dateLabel.stringValue = dateFormatter.string(from: episode.pubDate)
+        
         return cell
     }
     

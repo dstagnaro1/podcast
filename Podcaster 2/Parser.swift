@@ -30,12 +30,10 @@ class Parser {
                 episode.htmlDescription = desc
             }
             
-            if let link = item["link"].element?.text {
+            if let enc = item["enclosure"].element?.attribute(by: "url") {
+                episode.audioURL = enc.text
+            } else if let link = item["link"].element?.text {
                 episode.audioURL = link
-            } else {
-                if let enc = item["enclosure"].element?.attribute(by: "url") {
-                    episode.audioURL = enc.text
-                }
             }
             
             if let pubDate = item["pubDate"].element?.text {

@@ -16,6 +16,7 @@
 		3799FADD1ECE0E24003532FC /* Podcaster_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3799FADB1ECE0E24003532FC /* Podcaster_2.xcdatamodeld */; };
 		3799FADF1ECE0E24003532FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3799FADE1ECE0E24003532FC /* Assets.xcassets */; };
 		3799FAE21ECE0E24003532FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3799FAE01ECE0E24003532FC /* Main.storyboard */; };
+		37B075F41ED28C67007CF550 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B075F31ED28C67007CF550 /* EpisodeCell.swift */; };
 		37E12D381ECFC162005B6ACE /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E12D371ECFC162005B6ACE /* EpisodesViewController.swift */; };
 		37E12D3A1ECFC28D005B6ACE /* SplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E12D391ECFC28D005B6ACE /* SplitController.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		3799FADE1ECE0E24003532FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3799FAE11ECE0E24003532FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3799FAE31ECE0E24003532FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37B075F31ED28C67007CF550 /* EpisodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		37E12D371ECFC162005B6ACE /* EpisodesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		37E12D391ECFC28D005B6ACE /* SplitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 			children = (
 				3799FAD71ECE0E24003532FC /* AppDelegate.swift */,
 				37E12D371ECFC162005B6ACE /* EpisodesViewController.swift */,
+				37B075F31ED28C67007CF550 /* EpisodeCell.swift */,
 				370B626A1ECE245C00BCA82D /* PodcastsViewController.swift */,
 				37E12D391ECFC28D005B6ACE /* SplitController.swift */,
 				37084C841ED14CE400FD8A13 /* Episode.swift */,
@@ -167,6 +170,7 @@
 				37053AF21ECE78EE00728C33 /* SWXMLHash+TypeConversion.swift in Sources */,
 				37E12D381ECFC162005B6ACE /* EpisodesViewController.swift in Sources */,
 				37053AEE1ECE757800728C33 /* Parser.swift in Sources */,
+				37B075F41ED28C67007CF550 /* EpisodeCell.swift in Sources */,
 				370B626B1ECE245C00BCA82D /* PodcastsViewController.swift in Sources */,
 				37053AF11ECE78EE00728C33 /* SWXMLHash.swift in Sources */,
 				37084C851ED14CE400FD8A13 /* Episode.swift in Sources */,

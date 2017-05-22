@@ -3,7 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="12120"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="12120"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -905,12 +905,12 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="episodeCell" id="YNK-c5-ecF">
+                                                        <tableCellView identifier="episodeCell" id="YNK-c5-ecF" customClass="EpisodeCell" customModule="Podcaster_2" customModuleProvider="target">
                                                             <rect key="frame" x="1" y="1" width="601" height="153"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPy-vS-bhZ">
-                                                                    <rect key="frame" x="1" y="125" width="482" height="25"/>
+                                                                    <rect key="frame" x="1" y="125" width="478" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="J9k-sh-opT"/>
                                                                     </constraints>
@@ -921,9 +921,9 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYS-w5-fwL">
-                                                                    <rect key="frame" x="499" y="125" width="101" height="25"/>
+                                                                    <rect key="frame" x="476" y="125" width="124" height="25"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="97" id="i4A-SO-ofK"/>
+                                                                        <constraint firstAttribute="width" constant="120" id="i4A-SO-ofK"/>
                                                                         <constraint firstAttribute="height" constant="25" id="kxu-0W-nQX"/>
                                                                     </constraints>
                                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Date" id="YHl-lJ-XWy">
@@ -932,25 +932,29 @@
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
-                                                                <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ble-v4-ncT">
-                                                                    <rect key="frame" x="3" y="3" width="595" height="118"/>
-                                                                    <wkWebViewConfiguration key="configuration">
-                                                                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                                                        <wkPreferences key="preferences"/>
-                                                                    </wkWebViewConfiguration>
-                                                                </wkWebView>
+                                                                <webView translatesAutoresizingMaskIntoConstraints="NO" id="ueA-3s-V6m">
+                                                                    <rect key="frame" x="3" y="3" width="595" height="119"/>
+                                                                    <webPreferences key="preferences" defaultFontSize="16" defaultFixedFontSize="13" minimumFontSize="0">
+                                                                        <nil key="identifier"/>
+                                                                    </webPreferences>
+                                                                </webView>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="kYS-w5-fwL" secondAttribute="trailing" constant="3" id="6WG-MO-WHo"/>
-                                                                <constraint firstAttribute="trailing" secondItem="Ble-v4-ncT" secondAttribute="trailing" constant="3" id="9Fs-7T-uAc"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ueA-3s-V6m" secondAttribute="trailing" constant="3" id="6pH-R1-lWI"/>
+                                                                <constraint firstItem="ueA-3s-V6m" firstAttribute="leading" secondItem="YNK-c5-ecF" secondAttribute="leading" constant="3" id="CxU-8T-giI"/>
                                                                 <constraint firstItem="kYS-w5-fwL" firstAttribute="top" secondItem="YNK-c5-ecF" secondAttribute="top" constant="3" id="HvQ-Y5-24l"/>
-                                                                <constraint firstItem="kYS-w5-fwL" firstAttribute="leading" secondItem="dPy-vS-bhZ" secondAttribute="trailing" constant="20" id="K5M-9x-6W4"/>
+                                                                <constraint firstItem="kYS-w5-fwL" firstAttribute="leading" secondItem="dPy-vS-bhZ" secondAttribute="trailing" constant="1" id="K5M-9x-6W4"/>
                                                                 <constraint firstItem="dPy-vS-bhZ" firstAttribute="top" secondItem="YNK-c5-ecF" secondAttribute="top" constant="3" id="K9y-fk-RdF"/>
-                                                                <constraint firstItem="Ble-v4-ncT" firstAttribute="top" secondItem="dPy-vS-bhZ" secondAttribute="bottom" constant="4" id="UnK-uP-tHo"/>
-                                                                <constraint firstAttribute="bottom" secondItem="Ble-v4-ncT" secondAttribute="bottom" constant="3" id="dau-Zm-3Y5"/>
-                                                                <constraint firstItem="Ble-v4-ncT" firstAttribute="leading" secondItem="YNK-c5-ecF" secondAttribute="leading" constant="3" id="ngV-qi-wkm"/>
                                                                 <constraint firstItem="dPy-vS-bhZ" firstAttribute="leading" secondItem="YNK-c5-ecF" secondAttribute="leading" constant="3" id="oDd-Ca-83K"/>
+                                                                <constraint firstItem="ueA-3s-V6m" firstAttribute="top" secondItem="dPy-vS-bhZ" secondAttribute="bottom" constant="3" id="om9-Cv-KYQ"/>
+                                                                <constraint firstAttribute="bottom" secondItem="ueA-3s-V6m" secondAttribute="bottom" constant="3" id="rsI-eA-jhV"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="dateLabel" destination="kYS-w5-fwL" id="hru-RI-0Vj"/>
+                                                                <outlet property="descriptionWebView" destination="ueA-3s-V6m" id="WqN-qe-swm"/>
+                                                                <outlet property="titleLabel" destination="dPy-vS-bhZ" id="NXT-pC-JgY"/>
+                                                            </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
